@@ -1,0 +1,252 @@
+openapi: 3.0.0
+info:
+  title: Super Seguros Quotes API
+  version: '2.0'
+servers:
+- url: https://sandbox.super.mx
+  variables: {}
+- description: Production
+  url: https://app.super.mx
+  variables: {}
+security:
+- apiKey: []
+tags:
+- name: Quotes
+paths:
+  /api/v2/{product}/quotes:
+    post:
+      callbacks: {}
+      operationId: BobbyWeb.Api.V2.QuoteController.index
+      parameters:
+      - description: ''
+        example: life
+        in: path
+        name: product
+        required: true
+        schema:
+          enum:
+          - life
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LifeQuoteRequest'
+        description: Request Body
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  data:
+                    properties:
+                      quotes:
+                        items:
+                          $ref: '#/components/schemas/LifeQuote'
+                        type: array
+                    type: object
+                type: object
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          content:
+            application/json:
+              schema:
+                properties:
+                  errors:
+                    items:
+                      additionalProperties:
+                        items:
+                          type: string
+                        type: array
+                      example:
+                        date_of_birth:
+                        - can't be blank
+                        marital_status:
+                        - 'is invalid; accepted values: married, divorced, single, civil_union, widowed'
+                        nationality:
+                        - 'is invalid; accepted values: mexican, other'
+                        sex_at_birth:
+                        - can't be blank
+                      type: object
+                    type: array
+                type: object
+          description: Unprocessable Entity
+      summary: Get a list of quotes for a customer
+      tags:
+      - Quotes
+components:
+  schemas:
+    LifeQuote:
+      properties:
+        annual_premium:
+          example: 650.11
+          type: number
+        coverages:
+          $ref: '#/components/schemas/coverages'
+        link:
+          description: 'Link to buy the insurance with this specific quote and any data that
+
+            was sent already prefilled in the application
+
+            '
+          example: /studio/prefill?token=asdjoj1209jdokasjd...
+          format: uri
+          type: string
+        monthly_premium:
+          example: 50.15
+          type: number
+        plan_type:
+          $ref: '#/components/schemas/planType'
+        term_years:
+          example: 1
+          type: integer
+      title: LifeQuote
+    coverages:
+      additionalProperties:
+        type: integer
+      description: A map containing the coverages inclued in this quote. The key is the coverage's name, and the value is the sum insured selected
+      example:
+        life: 250000
+      type: object
+    address:
+      description: 'Same names and meanings as Google''s geoocoding API.
+
+        https://developers.google.com/maps/documentation/geocoding/requests-geocoding
+
+        '
+      properties:
+        administrative_area_level_1:
+          description: Named `Estado`
+          example: CDMX
+          type: string
+        interior_number:
+          description: Name `Número interior`
+          example: 12, Mz 1 Lt 1
+          type: string
+        locality:
+          description: Can be both `Municipio` or `Delegación`
+          example: Benito Juaréz, Naucalpan
+          type: string
+        postal_code:
+          description: 5 digits
+          example: '22222'
+          pattern: \d{5}
+          type: string
+        route:
+          description: Named `Calle`
+          example: Paseo de la Reforma
+          type: string
+        street_number:
+          description: Named `Número exterior`
+          example: '285'
+          type: string
+        sublocality_level_1:
+          description: Named `Colonia`
+          example: Some Colonia
+          type: string
+      title: Address
+      type: object
+    planType:
+      description: 'Type of insurance.
+
+
+        * `return_of_premium`: A plan that returns a percentage of the paid premium at the end of the insurance term
+
+        * `term`: A plan for an insurance on a fixed term
+
+        '
+      enum:
+      - return_of_premium
+      - term
+      type: string
+    LifeQuoteRequest:
+      properties:
+        address:
+          $ref: '#/components/schemas/address'
+        date_of_birth:
+          description: ISO8601 date format
+          example: '2000-01-01'
+          format: date
+          type: string
+        email:
+          format: email
+          type: string
+        first_last_name:
+          description: Usually the paternal name
+          example: Doe
+          type: string
+        first_name:
+          description: Given name
+          example: Juan, Julia
+          type: string
+        height:
+          description: in cms
+          example: '170'
+          type: integer
+        marital_status:
+          enum:
+          - married
+          - divorced
+          - single
+          - civil_union
+          - widowed
+          type: string
+        mobile:
+          description: E.164 mexican formatted number, has a plus sign and 13 digits
+          example: '+5212222222222'
+          pattern: ^\+\d{13}$
+          type: string
+        monthly_income:
+          description: Used to filter quotes that are suitable for this income
+          example: 3000
+          type: integer
+        nationality:
+          enum:
+          - mexican
+          - other
+          type: string
+        plan_type:
+          $ref: '#/components/schemas/planType'
+        profession:
+          example: Ejecutivo de ventas
+          type: string
+        rfc:
+          description: Mexican tax id for individuals, has 4 letters followed by 6 digits and another 3 chars
+          example: SIMA971112UVA
+          pattern: ^\D{4}\d{6}\S{3}$
+          type: string
+        second_last_name:
+          description: Usually the maternal name
+          example: Dae
+          type: string
+        sex_at_birth:
+          description: Affects the quotes that are returned
+          enum:
+          - male
+          - female
+          type: string
+        smoker:
+          default: false
+          description: Affects the quotes that are returned
+          type: boolean
+        weight:
+          description: in kgs
+          example: '80'
+          type: integer
+      required:
+      - date_of_birth
+      - sex_at_birth
+      title: LifeQuoteRequest
+      type: object
+  securitySchemes:
+    apiKey:
+      in: header
+      name: X-Api-Key
+      type: apiKey
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
