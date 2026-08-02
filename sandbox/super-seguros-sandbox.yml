@@ -1,0 +1,24 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/super-seguros-openapi.json
+docs: https://developers.super.mx/docs/getting-started
+environments:
+  - name: sandbox
+    base_url: https://sandbox.super.mx
+    purpose: Testing / development
+  - name: production
+    base_url: https://app.super.mx
+    purpose: Live
+auth:
+  scheme: apiKey
+  header: X-Api-Key
+  notes: >-
+    Same X-Api-Key header auth on both environments; keys are issued during partner
+    onboarding. Quoting endpoints are broadly available; purchase endpoints require
+    approval.
+test_values: []
+notes: >-
+  Super Studio publishes a separate sandbox host (sandbox.super.mx) distinct from the
+  production host (app.super.mx). No published magic test values (test cards, fixtures,
+  or synthetic identities) were found in the public docs — access is granted via an
+  onboarding form. NEVER fabricated; test_values left empty because none are published.

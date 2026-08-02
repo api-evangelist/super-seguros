@@ -1,7 +1,14 @@
 aid: super-seguros
 name: Super Seguros
-description: Super Seguros is a company surfaced as a portfolio company of anthemis and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Super Seguros (super.mx) is a Mexican insurtech that lets people quote, buy, and
+  manage insurance entirely online. Its developer product, Super Studio, is a set of
+  REST APIs partners use to generate insurance quotes and sell policies — covering life
+  insurance (12-month term and 5-year plans with savings), home, renters, and landlord
+  products. Quoting endpoints are broadly available and return prefilled purchase links
+  to super.mx; purchase endpoints let approved partners sell insurance directly via API.
+  Authentication is via an X-Api-Key header, with separate sandbox and production hosts.
+  Super Seguros is backed by Anthemis.
 url: https://raw.githubusercontent.com/api-evangelist/super-seguros/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,14 +16,86 @@ x-backed-by:
 - anthemis
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.super.mx/src/assets/super_midoconline_fav.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- Insurance
+- Insurtech
+- Life Insurance
+- Quotes
+- Mexico
+- Financial Services
+- Super Studio
+apis:
+- aid: super-seguros:super-seguros-quotes-api
+  name: Super Seguros Quotes API
+  description: The Quotes API from Super Seguros — 1 operation(s) for quotes.
+  humanURL: https://developers.super.mx/
+  baseURL: https://app.super.mx
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/super-seguros-quotes-api-openapi.yml
+  - type: APIReference
+    url: https://developers.super.mx/reference/bobbywebapiv2quotecontrollerindex
+common:
+- type: DomainSecurity
+  url: security/super-seguros-domain-security.yml
+- type: Authentication
+  url: authentication/super-seguros-authentication.yml
+- type: Website
+  url: https://www.super.mx/
+- type: DeveloperPortal
+  url: https://developers.super.mx/
+- type: Documentation
+  url: https://developers.super.mx/docs/getting-started
+- type: GettingStarted
+  url: https://developers.super.mx/docs/getting-started
+- type: APIReference
+  url: https://developers.super.mx/reference/bobbywebapiv2quotecontrollerindex
+- type: LLMsTxt
+  url: llms/super-seguros-llms.txt
+- type: MCPServer
+  url: mcp/super-seguros-mcp.yml
+- type: Overlay
+  url: overlays/super-seguros-openapi-overlay.yaml
+- type: ErrorCatalog
+  url: errors/super-seguros-problem-types.yml
+- type: Conventions
+  url: conventions/super-seguros-conventions.yml
+- type: Lifecycle
+  url: lifecycle/super-seguros-lifecycle.yml
+- type: Conformance
+  url: conformance/super-seguros-conformance.yml
+- type: Sandbox
+  url: sandbox/super-seguros-sandbox.yml
+- type: DataModel
+  url: data-model/super-seguros-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1

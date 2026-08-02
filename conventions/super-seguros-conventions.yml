@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/super-seguros-openapi.json
+authentication:
+  style: apiKey
+  location: header
+  parameter: X-Api-Key
+  cross_ref: authentication/super-seguros-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency key header or documented idempotency contract.
+pagination:
+  supported: false
+  notes: The quoting operation returns a bounded data.quotes[] array; no pagination params.
+versioning:
+  style: uri-path
+  current: v2
+  cross_ref: lifecycle/super-seguros-lifecycle.yml
+error_envelope:
+  success: '{ "data": { ... } }'
+  validation: '{ "errors": [ { "<field>": ["<message>"] } ] }'
+  content_type: application/json
+  cross_ref: errors/super-seguros-problem-types.yml
+response_shape:
+  notes: Successful responses wrap the payload under a top-level `data` object.
+rate_limit_signaling:
+  documented: false
+metadata:
+  supported: false
+notes: >-
+  Cross-cutting conventions derived from the single published Super Studio quoting
+  operation. Locale/formatting is Mexico-specific (E.164 +52 phone numbers, RFC tax id,
+  ISO8601 dates, Google-geocoding-style address fields).

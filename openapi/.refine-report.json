@@ -1,0 +1,14 @@
+{
+  "provider": "super-seguros",
+  "sources": [
+    "super-seguros-quotes-api-openapi.yml"
+  ],
+  "outputs": [
+    "super-seguros-quotes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

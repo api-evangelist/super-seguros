@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Super Seguros (Super Studio)
+  version: 1.0.0
+extends: openapi/super-seguros-openapi.json
+actions:
+  - target: $.info
+    update:
+      description: >-
+        Super Studio is the set of APIs from Super Seguros (super.mx) used to quote,
+        sell, and manage insurance in Mexico. Quoting endpoints return prefilled
+        purchase links to super.mx; purchase endpoints let approved partners sell
+        insurance directly via API. Authentication is via an X-Api-Key header.
+      x-apievangelist-enriched: true
+      contact:
+        name: Super Studio Developer Support
+        url: https://developers.super.mx/
+  - target: $.paths['/api/v2/{product}/quotes'].post
+    update:
+      x-agentic-action-class: read
+      x-notes: >-
+        Read/quoting operation. Returns candidate quotes plus a prefilled link the
+        customer follows to complete purchase on super.mx.
+  - target: $.tags
+    update:
+      - name: Quotes
+        description: Insurance quoting endpoints.

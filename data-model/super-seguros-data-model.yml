@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/super-seguros-openapi.json
+entities:
+  - name: LifeQuoteRequest
+    kind: request
+    description: Input payload to request life-insurance quotes for a customer.
+    key_fields: [date_of_birth, sex_at_birth, plan_type, address, monthly_income]
+  - name: LifeQuote
+    kind: response
+    description: A single returned quote with premiums, coverages, and a prefilled purchase link.
+    key_fields: [annual_premium, monthly_premium, term_years, plan_type, coverages, link]
+  - name: address
+    kind: value
+    description: Postal address using Google-geocoding-style field names (Mexico).
+  - name: coverages
+    kind: value
+    description: Map of coverage name to sum insured (integer).
+  - name: planType
+    kind: enum
+    values: [return_of_premium, term]
+relationships:
+  - from: LifeQuoteRequest
+    to: address
+    type: has_one
+    via: address
+  - from: LifeQuoteRequest
+    to: planType
+    type: has_one
+    via: plan_type
+  - from: LifeQuote
+    to: coverages
+    type: has_one
+    via: coverages
+  - from: LifeQuote
+    to: planType
+    type: has_one
+    via: plan_type
+notes: >-
+  Derived from OpenAPI components.schemas $ref links. The quoting response is
+  data.quotes[] -> LifeQuote. No persistent id-prefixed resources are exposed by the
+  single public quoting operation (quotes are returned inline with a purchase link).

@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/super-seguros-openapi.json
+format: custom-json
+notes: >-
+  Derived from the OpenAPI 4xx responses. Errors are returned as application/json,
+  NOT application/problem+json, so this API does not conform to RFC 9457. Validation
+  errors use an `errors[]` envelope keyed by field name with an array of messages.
+envelope:
+  validation: '{ "errors": [ { "<field>": ["<message>", ...] } ] }'
+problems:
+  - status: 401
+    title: Unauthorized
+    description: Missing or invalid X-Api-Key.
+    source_operation: openapi/super-seguros-openapi.json#BobbyWeb.Api.V2.QuoteController.index
+  - status: 422
+    title: Unprocessable Entity
+    description: >-
+      Request body failed validation. Returns an errors[] array where each entry maps
+      a field name to a list of human-readable messages (e.g. "can't be blank",
+      "is invalid; accepted values: ...").
+    content_type: application/json
+    envelope_field: errors
+    examples:
+      date_of_birth: ["can't be blank"]
+      marital_status: ["is invalid; accepted values: married, divorced, single, civil_union, widowed"]
+      nationality: ["is invalid; accepted values: mexican, other"]
+      sex_at_birth: ["can't be blank"]
+    source_operation: openapi/super-seguros-openapi.json#BobbyWeb.Api.V2.QuoteController.index

@@ -1,0 +1,10 @@
+# Super Studio Documentation
+
+> Documentation for Super Studio
+
+## Guides
+- [Getting Started with Super Studio](https://developers.super.mx/docs/getting-started.md): A brief overview of what you can do with Super Studio.
+- [Intro to quotes](https://developers.super.mx/docs/intro-to-quotes.md)
+
+## API Reference
+- [Get a list of quotes for a customer](https://developers.super.mx/reference/bobbywebapiv2quotecontrollerindex.md): Endpoint to get insurance quotes that a customer can then buy on super.mx using a pre-filled link.

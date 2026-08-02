@@ -1,0 +1,7 @@
+generated: '2026-07-21'
+method: generated
+skills:
+  - file: super-seguros-get-insurance-quotes.md
+    name: Get insurance quotes for a customer
+    api: openapi/super-seguros-openapi.json
+    operations: [BobbyWeb.Api.V2.QuoteController.index]

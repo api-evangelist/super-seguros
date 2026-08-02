@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/super-seguros-openapi.json
+versioning:
+  scheme: uri-path
+  current: v2
+  evidence: paths are prefixed /api/v2/ ; OpenAPI info.version is "2.0"
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No published deprecation policy or Sunset/Deprecation header support found.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  No status page or deprecation/versioning policy page was discoverable on the public
+  developer surface (developers.super.mx). Versioning is inferred from the /api/v2/
+  path prefix. Re-run to upgrade if the provider publishes a status page or policy.
