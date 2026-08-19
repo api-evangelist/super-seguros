@@ -1,0 +1,287 @@
+{
+  "item": [
+    {
+      "id": "a7625312-6b4a-4d84-8197-d096bb5cf352",
+      "name": "Quotes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0380bcae-d480-4e0d-bd76-db69ac3aa298",
+          "name": "Get a list of quotes for a customer",
+          "request": {
+            "name": "Get a list of quotes for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                ":product",
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "product",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<date>\",\n  \"sex_at_birth\": \"<string>\",\n  \"address\": {\n    \"administrative_area_level_1\": \"<string>\",\n    \"interior_number\": \"<string>\",\n    \"locality\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"route\": \"<string>\",\n    \"street_number\": \"<string>\",\n    \"sublocality_level_1\": \"<string>\"\n  },\n  \"email\": \"<email>\",\n  \"first_last_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"height\": \"<integer>\",\n  \"marital_status\": \"<string>\",\n  \"mobile\": \"<string>\",\n  \"monthly_income\": \"<integer>\",\n  \"nationality\": \"<string>\",\n  \"plan_type\": \"<string>\",\n  \"profession\": \"<string>\",\n  \"rfc\": \"<string>\",\n  \"second_last_name\": \"<string>\",\n  \"smoker\": false,\n  \"weight\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c40c973-8f07-4cfe-8069-9a38b5195a1e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    ":product",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_birth\": \"2000-01-01\",\n  \"sex_at_birth\": \"<string>\",\n  \"address\": {\n    \"administrative_area_level_1\": \"CDMX\",\n    \"interior_number\": \"12, Mz 1 Lt 1\",\n    \"locality\": \"Benito Juaréz, Naucalpan\",\n    \"postal_code\": \"22222\",\n    \"route\": \"Paseo de la Reforma\",\n    \"street_number\": \"285\",\n    \"sublocality_level_1\": \"Some Colonia\"\n  },\n  \"email\": \"<email>\",\n  \"first_last_name\": \"Doe\",\n  \"first_name\": \"Juan, Julia\",\n  \"height\": \"<integer>\",\n  \"marital_status\": \"<string>\",\n  \"mobile\": \"+5212222222222\",\n  \"monthly_income\": 3000,\n  \"nationality\": \"<string>\",\n  \"plan_type\": \"<string>\",\n  \"profession\": \"Ejecutivo de ventas\",\n  \"rfc\": \"SIMA971112UVA\",\n  \"second_last_name\": \"Dae\",\n  \"smoker\": false,\n  \"weight\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"quotes\": [\n      {\n        \"annual_premium\": 650.11,\n        \"coverages\": {\n          \"life\": 250000\n        },\n        \"link\": \"https://DGALabMUL.bipi3SZWap,4rkwyTMzEJDeM7uH4UIWszkhBsxdCGGsN\",\n        \"monthly_premium\": 50.15,\n        \"plan_type\": \"<string>\",\n        \"term_years\": 1\n      },\n      {\n        \"annual_premium\": 650.11,\n        \"coverages\": {\n          \"life\": 250000\n        },\n        \"link\": \"http://TfJhrTNQvAsVnzEnDRWOKmqtloIbLH.rrdVNPNXtFZShgV,J-NNNSFpwo8lYAweN2OKly-gSRGecYGnlqtxkCwuEY-+qj8jt794u6pqS,WJ15BSV\",\n        \"monthly_premium\": 50.15,\n        \"plan_type\": \"<string>\",\n        \"term_years\": 1\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc3077d3-b92a-4827-b7ba-c0f70fe660c0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    ":product",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_birth\": \"2000-01-01\",\n  \"sex_at_birth\": \"<string>\",\n  \"address\": {\n    \"administrative_area_level_1\": \"CDMX\",\n    \"interior_number\": \"12, Mz 1 Lt 1\",\n    \"locality\": \"Benito Juaréz, Naucalpan\",\n    \"postal_code\": \"22222\",\n    \"route\": \"Paseo de la Reforma\",\n    \"street_number\": \"285\",\n    \"sublocality_level_1\": \"Some Colonia\"\n  },\n  \"email\": \"<email>\",\n  \"first_last_name\": \"Doe\",\n  \"first_name\": \"Juan, Julia\",\n  \"height\": \"<integer>\",\n  \"marital_status\": \"<string>\",\n  \"mobile\": \"+5212222222222\",\n  \"monthly_income\": 3000,\n  \"nationality\": \"<string>\",\n  \"plan_type\": \"<string>\",\n  \"profession\": \"Ejecutivo de ventas\",\n  \"rfc\": \"SIMA971112UVA\",\n  \"second_last_name\": \"Dae\",\n  \"smoker\": false,\n  \"weight\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8bc5f101-8143-4346-ae92-5e82815816e7",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    ":product",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "product",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_birth\": \"2000-01-01\",\n  \"sex_at_birth\": \"<string>\",\n  \"address\": {\n    \"administrative_area_level_1\": \"CDMX\",\n    \"interior_number\": \"12, Mz 1 Lt 1\",\n    \"locality\": \"Benito Juaréz, Naucalpan\",\n    \"postal_code\": \"22222\",\n    \"route\": \"Paseo de la Reforma\",\n    \"street_number\": \"285\",\n    \"sublocality_level_1\": \"Some Colonia\"\n  },\n  \"email\": \"<email>\",\n  \"first_last_name\": \"Doe\",\n  \"first_name\": \"Juan, Julia\",\n  \"height\": \"<integer>\",\n  \"marital_status\": \"<string>\",\n  \"mobile\": \"+5212222222222\",\n  \"monthly_income\": 3000,\n  \"nationality\": \"<string>\",\n  \"plan_type\": \"<string>\",\n  \"profession\": \"Ejecutivo de ventas\",\n  \"rfc\": \"SIMA971112UVA\",\n  \"second_last_name\": \"Dae\",\n  \"smoker\": false,\n  \"weight\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"date_of_birth\": [\n        \"can't be blank\"\n      ],\n      \"marital_status\": [\n        \"is invalid; accepted values: married, divorced, single, civil_union, widowed\"\n      ],\n      \"nationality\": [\n        \"is invalid; accepted values: mexican, other\"\n      ],\n      \"sex_at_birth\": [\n        \"can't be blank\"\n      ]\n    },\n    {\n      \"date_of_birth\": [\n        \"can't be blank\"\n      ],\n      \"marital_status\": [\n        \"is invalid; accepted values: married, divorced, single, civil_union, widowed\"\n      ],\n      \"nationality\": [\n        \"is invalid; accepted values: mexican, other\"\n      ],\n      \"sex_at_birth\": [\n        \"can't be blank\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sandbox.super.mx",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Api-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7d2546f7-0bca-4e9b-99b0-b0380972f446",
+    "name": "Super Seguros Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

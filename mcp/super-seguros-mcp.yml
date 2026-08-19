@@ -2,16 +2,21 @@ generated: '2026-07-21'
 method: derived
 source: openapi/super-seguros-openapi.json
 status: candidate
-notes: >-
-  No official hosted/remote MCP server was found for Super Seguros / Super Studio.
-  This is a candidate tool surface derived from the published OpenAPI operations so
-  an MCP server could be generated. Not an official provider artifact.
+notes: No official hosted/remote MCP server was found for Super Seguros / Super Studio. This is a candidate
+  tool surface derived from the published OpenAPI operations so an MCP server could be generated. Not
+  an official provider artifact.
 server:
   name: super-seguros
   transport: http
 tools:
-  - name: get_quotes
-    description: Get a list of insurance quotes for a customer for a given product (e.g. life).
-    source_operation: openapi/super-seguros-openapi.json#BobbyWeb.Api.V2.QuoteController.index
-    method: POST
-    path: /api/v2/{product}/quotes
+- name: get_quotes
+  description: Get a list of insurance quotes for a customer for a given product (e.g. life).
+  source_operation: openapi/super-seguros-openapi.json#BobbyWeb.Api.V2.QuoteController.index
+  method: POST
+  path: /api/v2/{product}/quotes
+deployment:
+  mode: none
+  verified: derived
+  tools: 1
+  checked: '2026-08-12'
+  source: catalog MCP census
