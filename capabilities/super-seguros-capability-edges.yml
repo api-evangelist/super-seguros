@@ -1,0 +1,25 @@
+slug: super-seguros
+provider: Super Seguros
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Insurance
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Quotes
+  spec_file: super-seguros-quotes-api-openapi.yml
+  capability_id: BC-2110.60
+  capability_id_l1: BC-2110
+  capability_name: Quote & Submission Management
+  confidence: 0.88
+  evidence: POST /api/v2/{product}/quotes — "Get a list of quotes for a customer"; schemas "LifeQuoteRequest",
+    "coverages", "LifeQuote"
+  reason: Operation generates insurance quotes (life, home, renters) for a customer, matching Quote &
+    Submission Management in insurance distribution.

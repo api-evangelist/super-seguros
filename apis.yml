@@ -75,6 +75,9 @@ apis:
   - type: APIReference
     url: https://developers.super.mx/reference/bobbywebapiv2quotecontrollerindex
 common:
+- type: CapabilityMap
+  url: capabilities/super-seguros-capability-edges.yml
+  name: Super Seguros Business Capability Map
 - type: DomainSecurity
   url: security/super-seguros-domain-security.yml
 - type: Authentication
