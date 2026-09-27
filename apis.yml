@@ -52,7 +52,7 @@ tags:
 - Life Insurance
 - Quotes
 - Mexico
-- Financial-Services
+- Financial Services
 - Super Studio
 tags_raw:
 - Company
@@ -63,6 +63,7 @@ tags_raw:
 - Mexico
 - Financial Services
 - Super Studio
+- Financial-Services
 apis:
 - aid: super-seguros:super-seguros-quotes-api
   name: Super Seguros Quotes API
