@@ -80,44 +80,6 @@ paths:
       - Quotes
 components:
   schemas:
-    address:
-      description: 'Same names and meanings as Google''s geoocoding API.
-
-        https://developers.google.com/maps/documentation/geocoding/requests-geocoding
-
-        '
-      properties:
-        administrative_area_level_1:
-          description: Named `Estado`
-          example: CDMX
-          type: string
-        interior_number:
-          description: Name `Número interior`
-          example: 12, Mz 1 Lt 1
-          type: string
-        locality:
-          description: Can be both `Municipio` or `Delegación`
-          example: Benito Juaréz, Naucalpan
-          type: string
-        postal_code:
-          description: 5 digits
-          example: '22222'
-          pattern: \d{5}
-          type: string
-        route:
-          description: Named `Calle`
-          example: Paseo de la Reforma
-          type: string
-        street_number:
-          description: Named `Número exterior`
-          example: '285'
-          type: string
-        sublocality_level_1:
-          description: Named `Colonia`
-          example: Some Colonia
-          type: string
-      title: Address
-      type: object
     LifeQuoteRequest:
       properties:
         address:
@@ -197,12 +159,43 @@ components:
       - sex_at_birth
       title: LifeQuoteRequest
       type: object
-    coverages:
-      additionalProperties:
-        type: integer
-      description: A map containing the coverages inclued in this quote. The key is the coverage's name, and the value is the sum insured selected
-      example:
-        life: 250000
+    address:
+      description: 'Same names and meanings as Google''s geoocoding API.
+
+        https://developers.google.com/maps/documentation/geocoding/requests-geocoding
+
+        '
+      properties:
+        administrative_area_level_1:
+          description: Named `Estado`
+          example: CDMX
+          type: string
+        interior_number:
+          description: Name `Número interior`
+          example: 12, Mz 1 Lt 1
+          type: string
+        locality:
+          description: Can be both `Municipio` or `Delegación`
+          example: Benito Juaréz, Naucalpan
+          type: string
+        postal_code:
+          description: 5 digits
+          example: '22222'
+          pattern: \d{5}
+          type: string
+        route:
+          description: Named `Calle`
+          example: Paseo de la Reforma
+          type: string
+        street_number:
+          description: Named `Número exterior`
+          example: '285'
+          type: string
+        sublocality_level_1:
+          description: Named `Colonia`
+          example: Some Colonia
+          type: string
+      title: Address
       type: object
     planType:
       description: 'Type of insurance.
@@ -242,6 +235,13 @@ components:
           example: 1
           type: integer
       title: LifeQuote
+    coverages:
+      additionalProperties:
+        type: integer
+      description: A map containing the coverages inclued in this quote. The key is the coverage's name, and the value is the sum insured selected
+      example:
+        life: 250000
+      type: object
   securitySchemes:
     apiKey:
       in: header
