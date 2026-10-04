@@ -159,6 +159,44 @@ components:
       - sex_at_birth
       title: LifeQuoteRequest
       type: object
+    LifeQuote:
+      properties:
+        annual_premium:
+          example: 650.11
+          type: number
+        coverages:
+          $ref: '#/components/schemas/coverages'
+        link:
+          description: 'Link to buy the insurance with this specific quote and any data that
+
+            was sent already prefilled in the application
+
+            '
+          example: /studio/prefill?token=asdjoj1209jdokasjd...
+          format: uri
+          type: string
+        monthly_premium:
+          example: 50.15
+          type: number
+        plan_type:
+          $ref: '#/components/schemas/planType'
+        term_years:
+          example: 1
+          type: integer
+      title: LifeQuote
+    planType:
+      description: 'Type of insurance.
+
+
+        * `return_of_premium`: A plan that returns a percentage of the paid premium at the end of the insurance term
+
+        * `term`: A plan for an insurance on a fixed term
+
+        '
+      enum:
+      - return_of_premium
+      - term
+      type: string
     address:
       description: 'Same names and meanings as Google''s geoocoding API.
 
@@ -197,44 +235,6 @@ components:
           type: string
       title: Address
       type: object
-    planType:
-      description: 'Type of insurance.
-
-
-        * `return_of_premium`: A plan that returns a percentage of the paid premium at the end of the insurance term
-
-        * `term`: A plan for an insurance on a fixed term
-
-        '
-      enum:
-      - return_of_premium
-      - term
-      type: string
-    LifeQuote:
-      properties:
-        annual_premium:
-          example: 650.11
-          type: number
-        coverages:
-          $ref: '#/components/schemas/coverages'
-        link:
-          description: 'Link to buy the insurance with this specific quote and any data that
-
-            was sent already prefilled in the application
-
-            '
-          example: /studio/prefill?token=asdjoj1209jdokasjd...
-          format: uri
-          type: string
-        monthly_premium:
-          example: 50.15
-          type: number
-        plan_type:
-          $ref: '#/components/schemas/planType'
-        term_years:
-          example: 1
-          type: integer
-      title: LifeQuote
     coverages:
       additionalProperties:
         type: integer
