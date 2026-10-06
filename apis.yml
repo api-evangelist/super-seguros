@@ -44,7 +44,7 @@ accessModel:
 image: https://www.super.mx/src/assets/super_midoconline_fav.ico
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-10-06'
 tags:
 - Company
 - Insurance
@@ -78,6 +78,8 @@ apis:
   - type: APIReference
     url: https://developers.super.mx/reference/bobbywebapiv2quotecontrollerindex
 common:
+- url: https://www.super.mx/blog/
+  type: Blog
 - type: CapabilityMap
   url: capabilities/super-seguros-capability-edges.yml
   name: Super Seguros Business Capability Map
